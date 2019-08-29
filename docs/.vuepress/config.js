@@ -1,7 +1,7 @@
 module.exports = {
-  base: '/VuePress/',
+  base: '/blog/',
   dest: './docs/.vuepress/dist',
-  title: 'LIZI BLOG',
+  title: 'WINNEY BLOG',
   description: 'Just playing around',
   // head: [
   //   ['link', { rel: 'icon', href: '/favicon.ico' }], // 增加一个自定义的 favicon(网页标签的图标)
@@ -10,12 +10,24 @@ module.exports = {
     lineNumbers: true // 代码块显示行号
   },
   themeConfig: {
+    blogConfig: {
+      category: {
+        location: 2,     // 在导航栏菜单中所占的位置，默认2
+        text: 'Category' // 默认文案 “分类”
+      },
+      tag: {
+        location: 3,     // 在导航栏菜单中所占的位置，默认3
+        text: 'Tag'      // 默认文案 “标签”
+      }
+    },
     sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
+    lastUpdated: 'Last Updated' ,// 文档更新时间：每个文件git最后提交的时间,
     nav: [
       { text: 'Home', link: '/' },
       { text: '博文', link: '/guide/' },
       { text: 'Vue组件', link: '/components/' },
       { text: '项目总结', link: '/project/' },
+      { text: '随笔', link: '/thought/' },
       {
         text: '选择语言',
         items: [
@@ -29,26 +41,49 @@ module.exports = {
       '/guide/': [
         {
           title: '博文',
-          collapsable: false,
+          collapsable: true,
           children: [
             ['', '介绍'],
-            ['html', 'html&css'],
+            ['html', 'HTML&CSS'],
             ['javaScript', 'Javascript'],
+            ['mobile', 'Mobile'],
             ['es6', 'ES6'],
             ['vue', 'Vue'],
             ['react', 'React'],
+            ['TypeScript', 'TypeScript'],
+            ['webpack', 'webpack'],
           ]
         }
       ],
       '/components/': [
         {
           title: '组件',
-          collapsable: false,
+          collapsable: true,
           children: [
             ['', '介绍'],
             ['dialog-edit', '弹框表单组件'],
             ['region', '省市联动'],
             ['image-view', '图片列表'],
+            ['is-empty', '空组件'],
+          ]
+        }
+      ],
+      '/project/': [
+        {
+          title: '项目总结',
+          collapsable: true,
+          children: [
+            ['', '介绍'],
+          ]
+        }
+      ],
+      '/thought/': [
+        {
+          title: '随笔',
+          collapsable: true,
+          children: [
+            ['', '介绍'],
+            ['films','收藏电影'],
           ]
         }
       ],
